@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { images } from './assets';
 import './App.css';
+
 import type { Forecasts } from './types/Forecasts';
 
 function App() {
@@ -17,11 +19,12 @@ function App() {
 
   return (
     <div className="App">
+      <img src={images.japan} alt="日本全体" />
       {forecasts?.map((forecast) => (
-          <div key={forecast.date}>
-            <p>{forecast.date}</p>
-            <p>{forecast.telop}</p>
-          </div>
+        <div key={forecast.date}>
+          <p>{forecast.date}</p>
+          <p>{forecast.telop}</p>
+        </div>
       ))}
     </div>
   );
