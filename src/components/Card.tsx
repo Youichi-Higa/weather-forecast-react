@@ -16,15 +16,16 @@ export const Card = (props: Props) => {
 };
 
 const SContainer = styled.div`
-  width: 60px;
+  width: 50px;
   background-color: white;
   border-radius: 8px;
   cursor: pointer;
+  font-size: 14px;
   &:hover {
-    background-color: #d3d3d3;
+    background-color: #faf0e6;
   }
 `;
 
 const SIcon = styled.img`
-  width: 60px;
+  width: 50px;
 `;
