@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { images } from './assets';
-import './App.css';
+import styled from 'styled-components';
+import { images } from 'src/assets/images';
+import { Map } from 'src/components/Map';
+import type { Forecasts } from 'src/types/Forecasts';
 
-import type { Forecasts } from './types/Forecasts';
-
-function App() {
+const App = () => {
   const [forecasts, setForecasts] = useState<Forecasts | undefined>(undefined);
 
   const url = 'https://weather.tsukumijima.net/api/forecast/city/471010';
@@ -18,16 +18,24 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <img src={images.japan} alt="日本全体" />
+    <SContainer>
+      <Map />
       {forecasts?.map((forecast) => (
         <div key={forecast.date}>
           <p>{forecast.date}</p>
           <p>{forecast.telop}</p>
         </div>
       ))}
-    </div>
+    </SContainer>
   );
-}
+};
+
+const SContainer = styled.div`
+  text-align: center;
+`;
+
+const SJapan = styled.img`
+  width: 600px;
+`;
 
 export default App;
