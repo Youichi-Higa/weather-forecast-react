@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import { images } from 'src/assets/images';
-import { Map } from 'src/components/Map';
+import { Japan } from 'src/components/Japan';
 import type { Forecasts } from 'src/types/Forecasts';
 
 const App = () => {
@@ -19,7 +18,7 @@ const App = () => {
 
   return (
     <SContainer>
-      <Map />
+      <Japan />
       {forecasts?.map((forecast) => (
         <div key={forecast.date}>
           <p>{forecast.date}</p>
