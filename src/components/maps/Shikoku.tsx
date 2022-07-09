@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { images } from 'src/assets/images';
-import { BackHome } from './BackHome';
-import { Card } from './Card';
+import { BackHome } from '../BackHome';
+import { Card } from '../Card';
 import { cityIds } from 'src/constants/cityIds';
 import { useForecastAPI } from 'src/hooks/useForecastAPI';
 
