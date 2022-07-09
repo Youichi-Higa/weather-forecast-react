@@ -1,17 +1,19 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import type { Forecast } from 'src/types/Forecast';
+import type { Forecasts } from 'src/types/Forecasts';
 
-export const useForecast = (cityId: string) => {
-  const [forecast, setForecast] = useState<Forecast | undefined>(undefined);
+export const useForecastAPI = (cityId: string) => {
+  const [data, setData] = useState<Forecasts | undefined>(undefined);
   const url = `https://weather.tsukumijima.net/api/forecast/city/${cityId}`;
 
   useEffect(() => {
     axios
       .get(url)
-      .then((res) => setForecast(res.data.forecasts[0]))
+      .then((res) => {
+        setData(res.data);
+      })
       .catch((error) => console.error(error));
   }, [url]);
 
-  return forecast;
+  return data;
 };
