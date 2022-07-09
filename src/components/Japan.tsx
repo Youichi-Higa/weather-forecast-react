@@ -2,53 +2,71 @@ import styled from 'styled-components';
 import { images } from 'src/assets/images';
 import { Card } from './Card';
 import { cityIds } from 'src/constants/cityIds';
-import { useForecast } from 'src/hooks/useForecast';
+import { useForecastAPI } from 'src/hooks/useForecastAPI';
 
 export const Japan = () => {
-  const sapporo = useForecast(cityIds.sapporo.id);
-  const kushiro = useForecast(cityIds.kushiro.id);
-  const sendai = useForecast(cityIds.sendai.id);
-  const tokyo = useForecast(cityIds.tokyo.id);
-  const niigata = useForecast(cityIds.niigata.id);
-  const kanazawa = useForecast(cityIds.kanazawa.id);
-  const nagoya = useForecast(cityIds.nagoya.id);
-  const osaka = useForecast(cityIds.osaka.id);
-  const hiroshima = useForecast(cityIds.hiroshima.id);
-  const kochi = useForecast(cityIds.kochi.id);
-  const fukuoka = useForecast(cityIds.fukuoka.id);
-  const kagoshima = useForecast(cityIds.kagoshima.id);
-  const naha = useForecast(cityIds.naha.id);
+  const sapporo = useForecastAPI(cityIds.sapporo);
+  const kushiro = useForecastAPI(cityIds.kushiro);
+  const sendai = useForecastAPI(cityIds.sendai);
+  const tokyo = useForecastAPI(cityIds.tokyo);
+  const niigata = useForecastAPI(cityIds.niigata);
+  const kanazawa = useForecastAPI(cityIds.kanazawa);
+  const nagoya = useForecastAPI(cityIds.nagoya);
+  const osaka = useForecastAPI(cityIds.osaka);
+  const hiroshima = useForecastAPI(cityIds.hiroshima);
+  const kochi = useForecastAPI(cityIds.kochi);
+  const fukuoka = useForecastAPI(cityIds.fukuoka);
+  const kagoshima = useForecastAPI(cityIds.kagoshima);
+  const naha = useForecastAPI(cityIds.naha);
 
   return (
     <SContainer>
-      <SJapan src={images.japan} alt="日本全体" />
+      <SMap src={images.japan} alt="日本全体" />
       <SSapporo>
-        {sapporo && <Card city={cityIds.sapporo.name} imageUrl={sapporo.image.url} />}
+        {sapporo && <Card city={sapporo.location.city} imageUrl={sapporo.forecasts[0].image.url} />}
       </SSapporo>
       <SKushiro>
-        {kushiro && <Card city={cityIds.kushiro.name} imageUrl={kushiro?.image.url} />}
+        {kushiro && <Card city={kushiro.location.city} imageUrl={kushiro.forecasts[0].image.url} />}
       </SKushiro>
-      <SSendai>{sendai && <Card city={cityIds.sendai.name} imageUrl={sendai.image.url} />}</SSendai>
-      <STokyo>{tokyo && <Card city={cityIds.tokyo.name} imageUrl={tokyo.image.url} />}</STokyo>
+      <SSendai>
+        {sendai && <Card city={sendai.location.city} imageUrl={sendai.forecasts[0].image.url} />}
+      </SSendai>
+      <STokyo>
+        {tokyo && <Card city={tokyo.location.city} imageUrl={tokyo.forecasts[0].image.url} />}
+      </STokyo>
       <SNiigata>
-        {niigata && <Card city={cityIds.niigata.name} imageUrl={niigata.image.url} />}
+        {niigata && <Card city={niigata.location.city} imageUrl={niigata.forecasts[0].image.url} />}
       </SNiigata>
       <SKanazawa>
-        {kanazawa && <Card city={cityIds.kanazawa.name} imageUrl={kanazawa.image.url} />}
+        {kanazawa && (
+          <Card city={kanazawa.location.city} imageUrl={kanazawa.forecasts[0].image.url} />
+        )}
       </SKanazawa>
-      <SNagoya>{nagoya && <Card city={cityIds.nagoya.name} imageUrl={nagoya.image.url} />}</SNagoya>
-      <SOsaka>{osaka && <Card city={cityIds.osaka.name} imageUrl={osaka.image.url} />}</SOsaka>
+      <SNagoya>
+        {nagoya && <Card city={nagoya.location.city} imageUrl={nagoya.forecasts[0].image.url} />}
+      </SNagoya>
+      <SOsaka>
+        {osaka && <Card city={osaka.location.city} imageUrl={osaka.forecasts[0].image.url} />}
+      </SOsaka>
       <SHiroshima>
-        {hiroshima && <Card city={cityIds.hiroshima.name} imageUrl={hiroshima.image.url} />}
+        {hiroshima && (
+          <Card city={hiroshima.location.city} imageUrl={hiroshima.forecasts[0].image.url} />
+        )}
       </SHiroshima>
-      <SKochi>{kochi && <Card city={cityIds.kochi.name} imageUrl={kochi.image.url} />}</SKochi>
+      <SKochi>
+        {kochi && <Card city={kochi.location.city} imageUrl={kochi.forecasts[0].image.url} />}
+      </SKochi>
       <SFukuoka>
-        {fukuoka && <Card city={cityIds.fukuoka.name} imageUrl={fukuoka.image.url} />}
+        {fukuoka && <Card city={fukuoka.location.city} imageUrl={fukuoka.forecasts[0].image.url} />}
       </SFukuoka>
       <SKagoshima>
-        {kagoshima && <Card city={cityIds.kagoshima.name} imageUrl={kagoshima.image.url} />}
+        {kagoshima && (
+          <Card city={kagoshima.location.city} imageUrl={kagoshima.forecasts[0].image.url} />
+        )}
       </SKagoshima>
-      <SNaha>{naha && <Card city={cityIds.naha.name} imageUrl={naha.image.url} />}</SNaha>
+      <SNaha>
+        {naha && <Card city={naha.location.city} imageUrl={naha.forecasts[0].image.url} />}
+      </SNaha>
     </SContainer>
   );
 };
@@ -60,7 +78,7 @@ const SContainer = styled.div`
   width: 600px;
   background-color: #e1f5fe;
 `;
-const SJapan = styled.img`
+const SMap = styled.img`
   width: 400px;
   margin: 50px 0;
 `;
