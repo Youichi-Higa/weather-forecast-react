@@ -24,7 +24,7 @@ const SContainer = styled.div`
   font-size: 12px;
   font-weight: bold;
   &:hover {
-    background-color: #faf0e6;
+    background-color: linen;
   }
 `;
 

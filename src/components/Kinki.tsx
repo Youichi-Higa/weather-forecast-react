@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { images } from 'src/assets/images';
+import { BackHome } from './BackHome';
 import { Card } from './Card';
 import { cityIds } from 'src/constants/cityIds';
 import { useForecastAPI } from 'src/hooks/useForecastAPI';
@@ -16,6 +17,9 @@ export const Kinki = () => {
   return (
     <SContainer>
       <SMap src={images.kinki} alt="近畿" />
+      <SBackHome>
+        <BackHome />
+      </SBackHome>
       <STsu>{tsu && <Card city={tsu.location.city} imageUrl={tsu.forecasts[0].image.url} />}</STsu>
       <SOtsu>
         {otsu && <Card city={otsu.location.city} imageUrl={otsu.forecasts[0].image.url} />}
@@ -51,6 +55,11 @@ const SContainer = styled.div`
 const SMap = styled.img`
   width: 400px;
   margin: 50px 0;
+`;
+const SBackHome = styled.div`
+  position: absolute;
+  top: 20px;
+  right: 20px;
 `;
 const SCard = styled.div`
   position: absolute;

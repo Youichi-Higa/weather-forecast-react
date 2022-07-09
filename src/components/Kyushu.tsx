@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { images } from 'src/assets/images';
+import { BackHome } from './BackHome';
 import { Card } from './Card';
 import { cityIds } from 'src/constants/cityIds';
 import { useForecastAPI } from 'src/hooks/useForecastAPI';
@@ -16,6 +17,9 @@ export const Kyushu = () => {
   return (
     <SContainer>
       <SMap src={images.kyushu} alt="九州" />
+      <SBackHome>
+        <BackHome />
+      </SBackHome>
       <SFukuoka>
         {fukuoka && <Card city={fukuoka.location.city} imageUrl={fukuoka.forecasts[0].image.url} />}
       </SFukuoka>
@@ -59,6 +63,11 @@ const SContainer = styled.div`
 const SMap = styled.img`
   width: 400px;
   margin: 50px 0;
+`;
+const SBackHome = styled.div`
+  position: absolute;
+  top: 20px;
+  right: 20px;
 `;
 const SCard = styled.div`
   position: absolute;

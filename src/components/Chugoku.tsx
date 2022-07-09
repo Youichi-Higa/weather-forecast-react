@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { images } from 'src/assets/images';
+import { BackHome } from './BackHome';
 import { Card } from './Card';
 import { cityIds } from 'src/constants/cityIds';
 import { useForecastAPI } from 'src/hooks/useForecastAPI';
@@ -14,7 +15,12 @@ export const Chugoku = () => {
   return (
     <SContainer>
       <SMap src={images.chugoku} alt="中国" />
-      <STottori>{tottori && <Card city={tottori.location.city} imageUrl={tottori.forecasts[0].image.url} />}</STottori>
+      <SBackHome>
+        <BackHome />
+      </SBackHome>
+      <STottori>
+        {tottori && <Card city={tottori.location.city} imageUrl={tottori.forecasts[0].image.url} />}
+      </STottori>
       <SMatsue>
         {matsue && <Card city={matsue.location.city} imageUrl={matsue.forecasts[0].image.url} />}
       </SMatsue>
@@ -22,10 +28,14 @@ export const Chugoku = () => {
         {okayama && <Card city={okayama.location.city} imageUrl={okayama.forecasts[0].image.url} />}
       </SOkayama>
       <SHiroshima>
-        {hiroshima && <Card city={hiroshima.location.city} imageUrl={hiroshima.forecasts[0].image.url} />}
+        {hiroshima && (
+          <Card city={hiroshima.location.city} imageUrl={hiroshima.forecasts[0].image.url} />
+        )}
       </SHiroshima>
       <SYmaguchi>
-        {yamaguchi && <Card city={yamaguchi.location.city} imageUrl={yamaguchi.forecasts[0].image.url} />}
+        {yamaguchi && (
+          <Card city={yamaguchi.location.city} imageUrl={yamaguchi.forecasts[0].image.url} />
+        )}
       </SYmaguchi>
     </SContainer>
   );
@@ -41,6 +51,11 @@ const SContainer = styled.div`
 const SMap = styled.img`
   width: 400px;
   margin: 50px 0;
+`;
+const SBackHome = styled.div`
+  position: absolute;
+  top: 20px;
+  right: 20px;
 `;
 const SCard = styled.div`
   position: absolute;

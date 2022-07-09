@@ -1,29 +1,36 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import {
   Chubu,
   Chugoku,
   Hokkaido,
+  Japan,
+  Kanto,
   Kinki,
   Kyushu,
-  Kanto,
-  Japan,
+  NotFound,
   Shikoku,
   Tohoku,
 } from 'src/components';
 
 const App = () => {
   return (
-    <SContainer>
-      {/* <Japan /> */}
-      {/* <Hokkaido /> */}
-      {/* <Tohoku /> */}
-      {/* <Kanto /> */}
-      {/* <Chubu /> */}
-      {/* <Kinki /> */}
-      {/* <Chugoku /> */}
-      {/* <Shikoku /> */}
-      <Kyushu />
-    </SContainer>
+    <BrowserRouter>
+      <SContainer>
+        <Routes>
+          <Route path="/" element={<Japan />} />
+          <Route path="/hokkaido" element={<Hokkaido />} />
+          <Route path="/tohoku" element={<Tohoku />} />
+          <Route path="/kanto" element={<Kanto />} />
+          <Route path="/chubu" element={<Chubu />} />
+          <Route path="/kinki" element={<Kinki />} />
+          <Route path="/chugoku" element={<Chugoku />} />
+          <Route path="/shikoku" element={<Shikoku />} />
+          <Route path="/kyushu" element={<Kyushu />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </SContainer>
+    </BrowserRouter>
   );
 };
 
