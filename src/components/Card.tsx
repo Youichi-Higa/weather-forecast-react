@@ -21,7 +21,8 @@ const SContainer = styled.div`
   background-color: white;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 12px;
+  font-weight: bold;
   &:hover {
     background-color: #faf0e6;
   }

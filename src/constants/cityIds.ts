@@ -66,7 +66,7 @@ export const cityIds = {
   matsumoto: '200020',
   iida: '200030',
   gifu: '210010',
-  takayama: '220010',
+  takayama: '210020',
   shizuoka: '220010',
   ajiro: '220020',
   mishima: '220030',

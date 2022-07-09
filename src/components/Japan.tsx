@@ -21,7 +21,7 @@ export const Japan = () => {
 
   return (
     <SContainer>
-      <SJapan src={images.japan} alt="日本全体" />
+      <SMap src={images.japan} alt="日本全体" />
       <SSapporo>
         {sapporo && <Card city={sapporo.location.city} imageUrl={sapporo.forecasts[0].image.url} />}
       </SSapporo>
@@ -78,7 +78,7 @@ const SContainer = styled.div`
   width: 600px;
   background-color: #e1f5fe;
 `;
-const SJapan = styled.img`
+const SMap = styled.img`
   width: 400px;
   margin: 50px 0;
 `;

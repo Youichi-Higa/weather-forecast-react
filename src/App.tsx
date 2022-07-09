@@ -1,10 +1,28 @@
 import styled from 'styled-components';
-import { Japan } from 'src/components/Japan';
+import {
+  Chubu,
+  Chugoku,
+  Hokkaido,
+  Kinki,
+  Kyushu,
+  Kanto,
+  Japan,
+  Shikoku,
+  Tohoku,
+} from 'src/components';
 
 const App = () => {
   return (
     <SContainer>
-      <Japan />
+      {/* <Japan /> */}
+      {/* <Hokkaido /> */}
+      {/* <Tohoku /> */}
+      {/* <Kanto /> */}
+      {/* <Chubu /> */}
+      {/* <Kinki /> */}
+      {/* <Chugoku /> */}
+      {/* <Shikoku /> */}
+      <Kyushu />
     </SContainer>
   );
 };

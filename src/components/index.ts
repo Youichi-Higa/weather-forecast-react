@@ -1,0 +1,9 @@
+export { Chubu } from './Chubu';
+export { Chugoku } from './Chugoku';
+export { Hokkaido } from './Hokkaido';
+export { Kinki } from './Kinki';
+export { Kyushu } from './Kyushu';
+export { Kanto } from './Kanto';
+export { Japan } from './Japan';
+export { Shikoku } from './Shikoku';
+export { Tohoku } from './Tohoku';
