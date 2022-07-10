@@ -1,11 +1,14 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { images } from 'src/assets/images';
-import { cityIds } from 'src/constants';
+import { cityIds, path } from 'src/constants';
 import { useForecastAPI } from 'src/hooks/useForecastAPI';
 import { BackHome } from '../BackHome';
 import { Card } from '../Card';
 
 export const Shikoku = () => {
+  const navigate = useNavigate();
+
   const tokushima = useForecastAPI(cityIds.tokushima);
   const takamatsu = useForecastAPI(cityIds.takamatsu);
   const matsuyama = useForecastAPI(cityIds.matsuyama);
@@ -18,22 +21,22 @@ export const Shikoku = () => {
         <BackHome />
       </SBackHome>
       {tokushima && (
-        <STokushima>
+        <STokushima onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.tokushima}`)}>
           <Card city={tokushima.location.city} imageUrl={tokushima.forecasts[0].image.url} />
         </STokushima>
       )}
       {takamatsu && (
-        <STakamatsu>
+        <STakamatsu onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.takamatsu}`)}>
           <Card city={takamatsu.location.city} imageUrl={takamatsu.forecasts[0].image.url} />
         </STakamatsu>
       )}
       {matsuyama && (
-        <SMatsuyama>
+        <SMatsuyama onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.matsuyama}`)}>
           <Card city={matsuyama.location.city} imageUrl={matsuyama.forecasts[0].image.url} />
         </SMatsuyama>
       )}
       {kochi && (
-        <SKochi>
+        <SKochi onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.kochi}`)}>
           <Card city={kochi.location.city} imageUrl={kochi.forecasts[0].image.url} />
         </SKochi>
       )}

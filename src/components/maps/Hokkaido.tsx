@@ -1,11 +1,14 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { images } from 'src/assets/images';
-import { cityIds } from 'src/constants/';
+import { cityIds, path } from 'src/constants';
 import { useForecastAPI } from 'src/hooks/useForecastAPI';
 import { BackHome } from '../BackHome';
 import { Card } from '../Card';
 
 export const Hokkaido = () => {
+  const navigate = useNavigate();
+
   const wakkanai = useForecastAPI(cityIds.wakkanai);
   const asahikawa = useForecastAPI(cityIds.asahikawa);
   const abashiri = useForecastAPI(cityIds.abashiri);
@@ -21,37 +24,37 @@ export const Hokkaido = () => {
         <BackHome />
       </SBackHome>
       {wakkanai && (
-        <SWakkanai>
+        <SWakkanai onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.wakkanai}`)}>
           <Card city={wakkanai.location.city} imageUrl={wakkanai.forecasts[0].image.url} />
         </SWakkanai>
       )}
       {asahikawa && (
-        <SAsahikawa>
+        <SAsahikawa onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.asahikawa}`)}>
           <Card city={asahikawa.location.city} imageUrl={asahikawa.forecasts[0].image.url} />
         </SAsahikawa>
       )}
       {abashiri && (
-        <SAbashiri>
+        <SAbashiri onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.abashiri}`)}>
           <Card city={abashiri.location.city} imageUrl={abashiri.forecasts[0].image.url} />
         </SAbashiri>
       )}
       {kushiro && (
-        <SKushiro>
+        <SKushiro onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.kushiro}`)}>
           <Card city={kushiro.location.city} imageUrl={kushiro.forecasts[0].image.url} />
         </SKushiro>
       )}
       {muroran && (
-        <SMuroran>
+        <SMuroran onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.muroran}`)}>
           <Card city={muroran.location.city} imageUrl={muroran.forecasts[0].image.url} />
         </SMuroran>
       )}
       {sapporo && (
-        <SSapporo>
+        <SSapporo onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.sapporo}`)}>
           <Card city={sapporo.location.city} imageUrl={sapporo.forecasts[0].image.url} />
         </SSapporo>
       )}
       {hakodate && (
-        <SHakodate>
+        <SHakodate onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.hakodate}`)}>
           <Card city={hakodate.location.city} imageUrl={hakodate.forecasts[0].image.url} />
         </SHakodate>
       )}

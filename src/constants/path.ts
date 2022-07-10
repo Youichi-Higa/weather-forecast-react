@@ -9,5 +9,6 @@ export const path = {
   shikoku: '/shikoku',
   kyushu: '/kyushu',
   okinawa: '/okinawa',
+  weatherDetail: '/weather-detail',
   notFound: '*',
 };

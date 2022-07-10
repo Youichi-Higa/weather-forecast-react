@@ -1,11 +1,14 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { images } from 'src/assets/images';
-import { cityIds } from 'src/constants';
+import { cityIds, path } from 'src/constants';
 import { useForecastAPI } from 'src/hooks/useForecastAPI';
 import { BackHome } from '../BackHome';
 import { Card } from '../Card';
 
 export const Tohoku = () => {
+  const navigate = useNavigate();
+
   const aomori = useForecastAPI(cityIds.aomori);
   const morioka = useForecastAPI(cityIds.morioka);
   const sendai = useForecastAPI(cityIds.sendai);
@@ -20,32 +23,32 @@ export const Tohoku = () => {
         <BackHome />
       </SBackHome>
       {aomori && (
-        <SAomori>
+        <SAomori onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.aomori}`)}>
           <Card city={aomori.location.city} imageUrl={aomori.forecasts[0].image.url} />
         </SAomori>
       )}
       {morioka && (
-        <SMorioka>
+        <SMorioka onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.morioka}`)}>
           <Card city={morioka.location.city} imageUrl={morioka.forecasts[0].image.url} />
         </SMorioka>
       )}
       {sendai && (
-        <SSendai>
+        <SSendai onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.sendai}`)}>
           <Card city={sendai.location.city} imageUrl={sendai.forecasts[0].image.url} />
         </SSendai>
       )}
       {akita && (
-        <SAkita>
+        <SAkita onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.akita}`)}>
           <Card city={akita.location.city} imageUrl={akita.forecasts[0].image.url} />
         </SAkita>
       )}
       {yamagata && (
-        <SYamagata>
+        <SYamagata onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.yamagata}`)}>
           <Card city={yamagata.location.city} imageUrl={yamagata.forecasts[0].image.url} />
         </SYamagata>
       )}
       {fukushima && (
-        <SFukushima>
+        <SFukushima onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.fukushima}`)}>
           <Card city={fukushima.location.city} imageUrl={fukushima.forecasts[0].image.url} />
         </SFukushima>
       )}

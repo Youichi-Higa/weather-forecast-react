@@ -1,57 +1,56 @@
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { useForecastAPI } from 'src/hooks/useForecastAPI';
-import type { Forecasts } from 'src/types/Forecasts';
 
 export const WeatherDetail = () => {
   const search = useLocation().search;
   const query = new URLSearchParams(search);
-  const cityId = query.get('cityid') as string;
-  const detail = useForecastAPI(cityId) as Forecasts;
+  const cityId = query.get('cityid');
+  const detail = useForecastAPI(cityId);
 
-  return (    
+  return (
     <SContainer>
-      <STitle>
-        <p className="city-forecast">{detail.title}</p>
-        <p className="time">{`${detail.publicTimeFormatted}発表`}</p>
-      </STitle>
-      <STable>
-        <tr>
-          <th>日付</th>
-          {detail.forecasts.map((forecast) => (
-            <td>{forecast.date}</td>
-          ))}
-        </tr>
-        <tr>
-          <th>天気</th>
-          {detail.forecasts.map((forecast) => (
-            <td>
-              <img src={forecast.image.url ?? ''} alt="天気アイコン" />
-              <p>{forecast.telop}</p>
-            </td>
-          ))}
-        </tr>
-        <tr>
-          <th>気温</th>
-          {detail.forecasts.map((forecast) => (
-            <td>
-              <p className="max-temp">{forecast.temperature.max.celsius ?? '-'}</p>
-              <p className="min-temp">{forecast.temperature.min.celsius ?? '-'}</p>
-            </td>
-          ))}
-        </tr>
-      </STable>
+      {detail && (
+        <>
+          <STitle>
+            <p className="city-forecast">{`${detail.location.city}の天気`}</p>
+            <p className="time">{`${detail.publicTimeFormatted}発表`}</p>
+          </STitle>
+          <STable>
+            <tr>
+              <th>日付</th>
+              {detail.forecasts.map((forecast) => (
+                <td>{forecast.date}</td>
+              ))}
+            </tr>
+            <tr>
+              <th>天気</th>
+              {detail.forecasts.map((forecast) => (
+                <td>
+                  <img src={forecast.image.url ?? ''} alt="天気アイコン" />
+                  <p>{forecast.telop}</p>
+                </td>
+              ))}
+            </tr>
+            <tr>
+              <th>気温</th>
+              {detail.forecasts.map((forecast) => (
+                <td>
+                  <p className="max-temp">{forecast.temperature.max.celsius ?? '-'}</p>
+                  <p className="min-temp">{forecast.temperature.min.celsius ?? '-'}</p>
+                </td>
+              ))}
+            </tr>
+          </STable>
+        </>
+      )}
     </SContainer>
   );
 };
 
 const SContainer = styled.div`
   width: 600px;
-  height: 150px;
-  background-color: white;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 12px;
+  margin: 40px auto;
 `;
 
 const STitle = styled.div`

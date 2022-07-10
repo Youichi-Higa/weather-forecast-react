@@ -1,11 +1,14 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { images } from 'src/assets/images';
-import { cityIds } from 'src/constants';
+import { cityIds, path } from 'src/constants';
 import { useForecastAPI } from 'src/hooks/useForecastAPI';
 import { BackHome } from '../BackHome';
 import { Card } from '../Card';
 
 export const Chubu = () => {
+  const navigate = useNavigate();
+
   const niigata = useForecastAPI(cityIds.niigata);
   const toyama = useForecastAPI(cityIds.toyama);
   const kanazawa = useForecastAPI(cityIds.kanazawa);
@@ -23,47 +26,47 @@ export const Chubu = () => {
         <BackHome />
       </SBackHome>
       {niigata && (
-        <SNiigata>
+        <SNiigata onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.niigata}`)}>
           <Card city={niigata.location.city} imageUrl={niigata.forecasts[0].image.url} />
         </SNiigata>
       )}
       {toyama && (
-        <SToyama>
+        <SToyama onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.toyama}`)}>
           <Card city={toyama.location.city} imageUrl={toyama.forecasts[0].image.url} />
         </SToyama>
       )}
-      <SKanazawa>
-        {kanazawa && (
+      {kanazawa && (
+        <SKanazawa onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.kanazawa}`)}>
           <Card city={kanazawa.location.city} imageUrl={kanazawa.forecasts[0].image.url} />
-        )}
-      </SKanazawa>
+        </SKanazawa>
+      )}
       {fukui && (
-        <SFukui>
+        <SFukui onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.fukui}`)}>
           <Card city={fukui.location.city} imageUrl={fukui.forecasts[0].image.url} />
         </SFukui>
       )}
       {kofu && (
-        <SKofu>
+        <SKofu onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.kofu}`)}>
           <Card city={kofu.location.city} imageUrl={kofu.forecasts[0].image.url} />
         </SKofu>
       )}
       {nagano && (
-        <SNagano>
+        <SNagano onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.nagano}`)}>
           <Card city={nagano.location.city} imageUrl={nagano.forecasts[0].image.url} />
         </SNagano>
       )}
       {gifu && (
-        <SGifu>
+        <SGifu onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.gifu}`)}>
           <Card city={gifu.location.city} imageUrl={gifu.forecasts[0].image.url} />
         </SGifu>
       )}
       {shizuoka && (
-        <SShizuoka>
+        <SShizuoka onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.shizuoka}`)}>
           <Card city={shizuoka.location.city} imageUrl={shizuoka.forecasts[0].image.url} />
         </SShizuoka>
       )}
       {nagoya && (
-        <SNagoya>
+        <SNagoya onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.nagano}`)}>
           <Card city={nagoya.location.city} imageUrl={nagoya.forecasts[0].image.url} />
         </SNagoya>
       )}

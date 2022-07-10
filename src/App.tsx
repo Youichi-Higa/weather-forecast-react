@@ -12,6 +12,7 @@ import {
   NotFound,
   Shikoku,
   Tohoku,
+  WeatherDetail,
 } from 'src/components';
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
           <Route path={path.chugoku} element={<Chugoku />} />
           <Route path={path.shikoku} element={<Shikoku />} />
           <Route path={path.kyushu} element={<Kyushu />} />
+          <Route path={path.weatherDetail} element={<WeatherDetail />} />
           <Route path={path.notFound} element={<NotFound />} />
         </Routes>
       </SContainer>

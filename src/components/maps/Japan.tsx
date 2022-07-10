@@ -2,8 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { images } from 'src/assets/images';
 import { cityIds, path } from 'src/constants';
-import { Card } from '../Card';
 import { useForecastAPI } from 'src/hooks/useForecastAPI';
+import { Card } from '../Card';
 
 export const Japan = () => {
   const navigate = useNavigate();
@@ -86,7 +86,7 @@ export const Japan = () => {
         </SKagoshima>
       )}
       {naha && (
-        <SNaha>
+        <SNaha onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.naha}`)}>
           <Card city={naha.location.city} imageUrl={naha.forecasts[0].image.url} />
         </SNaha>
       )}
