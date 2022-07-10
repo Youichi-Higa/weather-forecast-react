@@ -23,30 +23,36 @@ export const Kanto = () => {
       <SMito>
         {mito && <Card city={mito.location.city} imageUrl={mito.forecasts[0].image.url} />}
       </SMito>
-      <SUtunomiya>
-        {utsunomiya && (
+      {utsunomiya && (
+        <SUtsunomiya>
           <Card city={utsunomiya.location.city} imageUrl={utsunomiya.forecasts[0].image.url} />
-        )}
-      </SUtunomiya>
-      <SMaebashi>
-        {maebashi && (
+        </SUtsunomiya>
+      )}
+      {maebashi && (
+        <SMaebashi>
           <Card city={maebashi.location.city} imageUrl={maebashi.forecasts[0].image.url} />
-        )}
-      </SMaebashi>
-      <SSaitama>
-        {saitama && <Card city={saitama.location.city} imageUrl={saitama.forecasts[0].image.url} />}
-      </SSaitama>
-      <SChiba>
-        {chiba && <Card city={chiba.location.city} imageUrl={chiba.forecasts[0].image.url} />}
-      </SChiba>
-      <STokyo>
-        {tokyo && <Card city={tokyo.location.city} imageUrl={tokyo.forecasts[0].image.url} />}
-      </STokyo>
-      <SYokohama>
-        {yokohama && (
+        </SMaebashi>
+      )}
+      {saitama && (
+        <SSaitama>
+          <Card city={saitama.location.city} imageUrl={saitama.forecasts[0].image.url} />
+        </SSaitama>
+      )}
+      {chiba && (
+        <SChiba>
+          <Card city={chiba.location.city} imageUrl={chiba.forecasts[0].image.url} />
+        </SChiba>
+      )}
+      {tokyo && (
+        <STokyo>
+          <Card city={tokyo.location.city} imageUrl={tokyo.forecasts[0].image.url} />
+        </STokyo>
+      )}
+      {yokohama && (
+        <SYokohama>
           <Card city={yokohama.location.city} imageUrl={yokohama.forecasts[0].image.url} />
-        )}
-      </SYokohama>
+        </SYokohama>
+      )}
     </SContainer>
   );
 };
@@ -75,7 +81,7 @@ const SMito = styled(SCard)`
   top: 150px;
   right: 140px;
 `;
-const SUtunomiya = styled(SCard)`
+const SUtsunomiya = styled(SCard)`
   top: 80px;
   right: 240px;
 `;

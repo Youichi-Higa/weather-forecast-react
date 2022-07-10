@@ -20,35 +20,41 @@ export const Hokkaido = () => {
       <SBackHome>
         <BackHome />
       </SBackHome>
-      <SWakkanai>
-        {wakkanai && (
+      {wakkanai && (
+        <SWakkanai>
           <Card city={wakkanai.location.city} imageUrl={wakkanai.forecasts[0].image.url} />
-        )}
-      </SWakkanai>
-      <SAsahikawa>
-        {asahikawa && (
+        </SWakkanai>
+      )}
+      {asahikawa && (
+        <SAsahikawa>
           <Card city={asahikawa.location.city} imageUrl={asahikawa.forecasts[0].image.url} />
-        )}
-      </SAsahikawa>
-      <SAbashiri>
-        {abashiri && (
+        </SAsahikawa>
+      )}
+      {abashiri && (
+        <SAbashiri>
           <Card city={abashiri.location.city} imageUrl={abashiri.forecasts[0].image.url} />
-        )}
-      </SAbashiri>
-      <SKushiro>
-        {kushiro && <Card city={kushiro.location.city} imageUrl={kushiro.forecasts[0].image.url} />}
-      </SKushiro>
-      <SMuroran>
-        {muroran && <Card city={muroran.location.city} imageUrl={muroran.forecasts[0].image.url} />}
-      </SMuroran>
-      <SSapporo>
-        {sapporo && <Card city={sapporo.location.city} imageUrl={sapporo.forecasts[0].image.url} />}
-      </SSapporo>
-      <SHakodate>
-        {hakodate && (
+        </SAbashiri>
+      )}
+      {kushiro && (
+        <SKushiro>
+          <Card city={kushiro.location.city} imageUrl={kushiro.forecasts[0].image.url} />
+        </SKushiro>
+      )}
+      {muroran && (
+        <SMuroran>
+          <Card city={muroran.location.city} imageUrl={muroran.forecasts[0].image.url} />
+        </SMuroran>
+      )}
+      {sapporo && (
+        <SSapporo>
+          <Card city={sapporo.location.city} imageUrl={sapporo.forecasts[0].image.url} />
+        </SSapporo>
+      )}
+      {hakodate && (
+        <SHakodate>
           <Card city={hakodate.location.city} imageUrl={hakodate.forecasts[0].image.url} />
-        )}
-      </SHakodate>
+        </SHakodate>
+      )}
     </SContainer>
   );
 };

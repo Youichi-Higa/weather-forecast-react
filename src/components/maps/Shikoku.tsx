@@ -17,24 +17,26 @@ export const Shikoku = () => {
       <SBackHome>
         <BackHome />
       </SBackHome>
-      <STokushima>
-        {tokushima && (
+      {tokushima && (
+        <STokushima>
           <Card city={tokushima.location.city} imageUrl={tokushima.forecasts[0].image.url} />
-        )}
-      </STokushima>
-      <STakamatsu>
-        {takamatsu && (
+        </STokushima>
+      )}
+      {takamatsu && (
+        <STakamatsu>
           <Card city={takamatsu.location.city} imageUrl={takamatsu.forecasts[0].image.url} />
-        )}
-      </STakamatsu>
-      <SMatsuyama>
-        {matsuyama && (
+        </STakamatsu>
+      )}
+      {matsuyama && (
+        <SMatsuyama>
           <Card city={matsuyama.location.city} imageUrl={matsuyama.forecasts[0].image.url} />
-        )}
-      </SMatsuyama>
-      <SKochi>
-        {kochi && <Card city={kochi.location.city} imageUrl={kochi.forecasts[0].image.url} />}
-      </SKochi>
+        </SMatsuyama>
+      )}
+      {kochi && (
+        <SKochi>
+          <Card city={kochi.location.city} imageUrl={kochi.forecasts[0].image.url} />
+        </SKochi>
+      )}
     </SContainer>
   );
 };

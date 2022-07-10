@@ -18,25 +18,31 @@ export const Chugoku = () => {
       <SBackHome>
         <BackHome />
       </SBackHome>
-      <STottori>
-        {tottori && <Card city={tottori.location.city} imageUrl={tottori.forecasts[0].image.url} />}
-      </STottori>
-      <SMatsue>
-        {matsue && <Card city={matsue.location.city} imageUrl={matsue.forecasts[0].image.url} />}
-      </SMatsue>
-      <SOkayama>
-        {okayama && <Card city={okayama.location.city} imageUrl={okayama.forecasts[0].image.url} />}
-      </SOkayama>
-      <SHiroshima>
-        {hiroshima && (
+      {tottori && (
+        <STottori>
+          <Card city={tottori.location.city} imageUrl={tottori.forecasts[0].image.url} />
+        </STottori>
+      )}
+      {matsue && (
+        <SMatsue>
+          <Card city={matsue.location.city} imageUrl={matsue.forecasts[0].image.url} />
+        </SMatsue>
+      )}
+      {okayama && (
+        <SOkayama>
+          <Card city={okayama.location.city} imageUrl={okayama.forecasts[0].image.url} />
+        </SOkayama>
+      )}
+      {hiroshima && (
+        <SHiroshima>
           <Card city={hiroshima.location.city} imageUrl={hiroshima.forecasts[0].image.url} />
-        )}
-      </SHiroshima>
-      <SYmaguchi>
-        {yamaguchi && (
+        </SHiroshima>
+      )}
+      {yamaguchi && (
+        <SYmaguchi>
           <Card city={yamaguchi.location.city} imageUrl={yamaguchi.forecasts[0].image.url} />
-        )}
-      </SYmaguchi>
+        </SYmaguchi>
+      )}
     </SContainer>
   );
 };

@@ -20,35 +20,41 @@ export const Kyushu = () => {
       <SBackHome>
         <BackHome />
       </SBackHome>
-      <SFukuoka>
-        {fukuoka && <Card city={fukuoka.location.city} imageUrl={fukuoka.forecasts[0].image.url} />}
-      </SFukuoka>
-      <SSaga>
-        {saga && <Card city={saga.location.city} imageUrl={saga.forecasts[0].image.url} />}
-      </SSaga>
-      <SNagasaki>
-        {nagasaki && (
+      {fukuoka && (
+        <SFukuoka>
+          <Card city={fukuoka.location.city} imageUrl={fukuoka.forecasts[0].image.url} />
+        </SFukuoka>
+      )}
+      {saga && (
+        <SSaga>
+          <Card city={saga.location.city} imageUrl={saga.forecasts[0].image.url} />
+        </SSaga>
+      )}
+      {nagasaki && (
+        <SNagasaki>
           <Card city={nagasaki.location.city} imageUrl={nagasaki.forecasts[0].image.url} />
-        )}
-      </SNagasaki>
-      <SKumamoto>
-        {kumamoto && (
+        </SNagasaki>
+      )}
+      {kumamoto && (
+        <SKumamoto>
           <Card city={kumamoto.location.city} imageUrl={kumamoto.forecasts[0].image.url} />
-        )}
-      </SKumamoto>
-      <SOita>
-        {oita && <Card city={oita.location.city} imageUrl={oita.forecasts[0].image.url} />}
-      </SOita>
-      <SMiyazaki>
-        {miyazaki && (
+        </SKumamoto>
+      )}
+      {oita && (
+        <SOita>
+          <Card city={oita.location.city} imageUrl={oita.forecasts[0].image.url} />
+        </SOita>
+      )}
+      {miyazaki && (
+        <SMiyazaki>
           <Card city={miyazaki.location.city} imageUrl={miyazaki.forecasts[0].image.url} />
-        )}
-      </SMiyazaki>
-      <SKagoshima>
-        {kagoshima && (
+        </SMiyazaki>
+      )}
+      {kagoshima && (
+        <SKagoshima>
           <Card city={kagoshima.location.city} imageUrl={kagoshima.forecasts[0].image.url} />
-        )}
-      </SKagoshima>
+        </SKagoshima>
+      )}
     </SContainer>
   );
 };

@@ -25,51 +25,71 @@ export const Japan = () => {
   return (
     <SContainer>
       <SMap src={images.japan} alt="日本全体" />
-      <SSapporo onClick={() => navigate('/hokkaido')}>
-        {sapporo && <Card city={sapporo.location.city} imageUrl={sapporo.forecasts[0].image.url} />}
-      </SSapporo>
-      <SKushiro onClick={() => navigate('/hokkaido')}>
-        {kushiro && <Card city={kushiro.location.city} imageUrl={kushiro.forecasts[0].image.url} />}
-      </SKushiro>
-      <SSendai onClick={() => navigate('/tohoku')}>
-        {sendai && <Card city={sendai.location.city} imageUrl={sendai.forecasts[0].image.url} />}
-      </SSendai>
-      <STokyo onClick={() => navigate('/kanto')}>
-        {tokyo && <Card city={tokyo.location.city} imageUrl={tokyo.forecasts[0].image.url} />}
-      </STokyo>
-      <SNiigata onClick={() => navigate('/chubu')}>
-        {niigata && <Card city={niigata.location.city} imageUrl={niigata.forecasts[0].image.url} />}
-      </SNiigata>
-      <SKanazawa onClick={() => navigate('/chubu')}>
-        {kanazawa && (
+      {sapporo && (
+        <SSapporo onClick={() => navigate('/hokkaido')}>
+          <Card city={sapporo.location.city} imageUrl={sapporo.forecasts[0].image.url} />
+        </SSapporo>
+      )}
+      {kushiro && (
+        <SKushiro onClick={() => navigate('/hokkaido')}>
+          <Card city={kushiro.location.city} imageUrl={kushiro.forecasts[0].image.url} />
+        </SKushiro>
+      )}
+      {sendai && (
+        <SSendai onClick={() => navigate('/tohoku')}>
+          <Card city={sendai.location.city} imageUrl={sendai.forecasts[0].image.url} />
+        </SSendai>
+      )}
+      {tokyo && (
+        <STokyo onClick={() => navigate('/kanto')}>
+          <Card city={tokyo.location.city} imageUrl={tokyo.forecasts[0].image.url} />
+        </STokyo>
+      )}
+      {niigata && (
+        <SNiigata onClick={() => navigate('/chubu')}>
+          <Card city={niigata.location.city} imageUrl={niigata.forecasts[0].image.url} />
+        </SNiigata>
+      )}
+      {kanazawa && (
+        <SKanazawa onClick={() => navigate('/chubu')}>
           <Card city={kanazawa.location.city} imageUrl={kanazawa.forecasts[0].image.url} />
-        )}
-      </SKanazawa>
-      <SNagoya onClick={() => navigate('/chubu')}>
-        {nagoya && <Card city={nagoya.location.city} imageUrl={nagoya.forecasts[0].image.url} />}
-      </SNagoya>
-      <SOsaka onClick={() => navigate('/kinki')}>
-        {osaka && <Card city={osaka.location.city} imageUrl={osaka.forecasts[0].image.url} />}
-      </SOsaka>
-      <SHiroshima onClick={() => navigate('/chugoku')}>
-        {hiroshima && (
+        </SKanazawa>
+      )}
+      {nagoya && (
+        <SNagoya onClick={() => navigate('/chubu')}>
+          <Card city={nagoya.location.city} imageUrl={nagoya.forecasts[0].image.url} />
+        </SNagoya>
+      )}
+      {osaka && (
+        <SOsaka onClick={() => navigate('/kinki')}>
+          <Card city={osaka.location.city} imageUrl={osaka.forecasts[0].image.url} />
+        </SOsaka>
+      )}
+      {hiroshima && (
+        <SHiroshima onClick={() => navigate('/chugoku')}>
           <Card city={hiroshima.location.city} imageUrl={hiroshima.forecasts[0].image.url} />
-        )}
-      </SHiroshima>
-      <SKochi onClick={() => navigate('/shikoku')}>
-        {kochi && <Card city={kochi.location.city} imageUrl={kochi.forecasts[0].image.url} />}
-      </SKochi>
-      <SFukuoka onClick={() => navigate('/kyushu')}>
-        {fukuoka && <Card city={fukuoka.location.city} imageUrl={fukuoka.forecasts[0].image.url} />}
-      </SFukuoka>
-      <SKagoshima onClick={() => navigate('/kyushu')}>
-        {kagoshima && (
+        </SHiroshima>
+      )}
+      {kochi && (
+        <SKochi onClick={() => navigate('/shikoku')}>
+          <Card city={kochi.location.city} imageUrl={kochi.forecasts[0].image.url} />
+        </SKochi>
+      )}
+      {fukuoka && (
+        <SFukuoka onClick={() => navigate('/kyushu')}>
+          <Card city={fukuoka.location.city} imageUrl={fukuoka.forecasts[0].image.url} />
+        </SFukuoka>
+      )}
+      {kagoshima && (
+        <SKagoshima onClick={() => navigate('/kyushu')}>
           <Card city={kagoshima.location.city} imageUrl={kagoshima.forecasts[0].image.url} />
-        )}
-      </SKagoshima>
-      <SNaha>
-        {naha && <Card city={naha.location.city} imageUrl={naha.forecasts[0].image.url} />}
-      </SNaha>
+        </SKagoshima>
+      )}
+      {naha && (
+        <SNaha>
+          <Card city={naha.location.city} imageUrl={naha.forecasts[0].image.url} />
+        </SNaha>
+      )}
     </SContainer>
   );
 };

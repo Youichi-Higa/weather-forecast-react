@@ -20,27 +20,41 @@ export const Kinki = () => {
       <SBackHome>
         <BackHome />
       </SBackHome>
-      <STsu>{tsu && <Card city={tsu.location.city} imageUrl={tsu.forecasts[0].image.url} />}</STsu>
-      <SOtsu>
-        {otsu && <Card city={otsu.location.city} imageUrl={otsu.forecasts[0].image.url} />}
-      </SOtsu>
-      <SKyoto>
-        {kyoto && <Card city={kyoto.location.city} imageUrl={kyoto.forecasts[0].image.url} />}
-      </SKyoto>
-      <SOsaka>
-        {osaka && <Card city={osaka.location.city} imageUrl={osaka.forecasts[0].image.url} />}
-      </SOsaka>
-      <SKobe>
-        {kobe && <Card city={kobe.location.city} imageUrl={kobe.forecasts[0].image.url} />}
-      </SKobe>
-      <SNara>
-        {nara && <Card city={nara.location.city} imageUrl={nara.forecasts[0].image.url} />}
-      </SNara>
-      <SWakayama>
-        {wakayama && (
+      {tsu && (
+        <STsu>
+          <Card city={tsu.location.city} imageUrl={tsu.forecasts[0].image.url} />
+        </STsu>
+      )}
+      {otsu && (
+        <SOtsu>
+          <Card city={otsu.location.city} imageUrl={otsu.forecasts[0].image.url} />
+        </SOtsu>
+      )}
+      {kyoto && (
+        <SKyoto>
+          <Card city={kyoto.location.city} imageUrl={kyoto.forecasts[0].image.url} />
+        </SKyoto>
+      )}
+      {osaka && (
+        <SOsaka>
+          <Card city={osaka.location.city} imageUrl={osaka.forecasts[0].image.url} />
+        </SOsaka>
+      )}
+      {kobe && (
+        <SKobe>
+          <Card city={kobe.location.city} imageUrl={kobe.forecasts[0].image.url} />
+        </SKobe>
+      )}
+      {nara && (
+        <SNara>
+          <Card city={nara.location.city} imageUrl={nara.forecasts[0].image.url} />
+        </SNara>
+      )}
+      {wakayama && (
+        <SWakayama>
           <Card city={wakayama.location.city} imageUrl={wakayama.forecasts[0].image.url} />
-        )}
-      </SWakayama>
+        </SWakayama>
+      )}
     </SContainer>
   );
 };

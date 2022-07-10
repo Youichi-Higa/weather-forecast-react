@@ -22,37 +22,51 @@ export const Chubu = () => {
       <SBackHome>
         <BackHome />
       </SBackHome>
-      <SNiigata>
-        {niigata && <Card city={niigata.location.city} imageUrl={niigata.forecasts[0].image.url} />}
-      </SNiigata>
-      <SToyama>
-        {toyama && <Card city={toyama.location.city} imageUrl={toyama.forecasts[0].image.url} />}
-      </SToyama>
+      {niigata && (
+        <SNiigata>
+          <Card city={niigata.location.city} imageUrl={niigata.forecasts[0].image.url} />
+        </SNiigata>
+      )}
+      {toyama && (
+        <SToyama>
+          <Card city={toyama.location.city} imageUrl={toyama.forecasts[0].image.url} />
+        </SToyama>
+      )}
       <SKanazawa>
         {kanazawa && (
           <Card city={kanazawa.location.city} imageUrl={kanazawa.forecasts[0].image.url} />
         )}
       </SKanazawa>
-      <SFukui>
-        {fukui && <Card city={fukui.location.city} imageUrl={fukui.forecasts[0].image.url} />}
-      </SFukui>
-      <SKofu>
-        {kofu && <Card city={kofu.location.city} imageUrl={kofu.forecasts[0].image.url} />}
-      </SKofu>
-      <SNagano>
-        {nagano && <Card city={nagano.location.city} imageUrl={nagano.forecasts[0].image.url} />}
-      </SNagano>
-      <SGifu>
-        {gifu && <Card city={gifu.location.city} imageUrl={gifu.forecasts[0].image.url} />}
-      </SGifu>
-      <SShizuoka>
-        {shizuoka && (
+      {fukui && (
+        <SFukui>
+          <Card city={fukui.location.city} imageUrl={fukui.forecasts[0].image.url} />
+        </SFukui>
+      )}
+      {kofu && (
+        <SKofu>
+          <Card city={kofu.location.city} imageUrl={kofu.forecasts[0].image.url} />
+        </SKofu>
+      )}
+      {nagano && (
+        <SNagano>
+          <Card city={nagano.location.city} imageUrl={nagano.forecasts[0].image.url} />
+        </SNagano>
+      )}
+      {gifu && (
+        <SGifu>
+          <Card city={gifu.location.city} imageUrl={gifu.forecasts[0].image.url} />
+        </SGifu>
+      )}
+      {shizuoka && (
+        <SShizuoka>
           <Card city={shizuoka.location.city} imageUrl={shizuoka.forecasts[0].image.url} />
-        )}
-      </SShizuoka>
-      <SNagoya>
-        {nagoya && <Card city={nagoya.location.city} imageUrl={nagoya.forecasts[0].image.url} />}
-      </SNagoya>
+        </SShizuoka>
+      )}
+      {nagoya && (
+        <SNagoya>
+          <Card city={nagoya.location.city} imageUrl={nagoya.forecasts[0].image.url} />
+        </SNagoya>
+      )}
     </SContainer>
   );
 };

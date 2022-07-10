@@ -19,28 +19,36 @@ export const Tohoku = () => {
       <SBackHome>
         <BackHome />
       </SBackHome>
-      <SAomori>
-        {aomori && <Card city={aomori.location.city} imageUrl={aomori.forecasts[0].image.url} />}
-      </SAomori>
-      <SMorioka>
-        {morioka && <Card city={morioka.location.city} imageUrl={morioka.forecasts[0].image.url} />}
-      </SMorioka>
-      <SSendai>
-        {sendai && <Card city={sendai.location.city} imageUrl={sendai.forecasts[0].image.url} />}
-      </SSendai>
-      <SAkita>
-        {akita && <Card city={akita.location.city} imageUrl={akita.forecasts[0].image.url} />}
-      </SAkita>
-      <SYamagata>
-        {yamagata && (
+      {aomori && (
+        <SAomori>
+          <Card city={aomori.location.city} imageUrl={aomori.forecasts[0].image.url} />
+        </SAomori>
+      )}
+      {morioka && (
+        <SMorioka>
+          <Card city={morioka.location.city} imageUrl={morioka.forecasts[0].image.url} />
+        </SMorioka>
+      )}
+      {sendai && (
+        <SSendai>
+          <Card city={sendai.location.city} imageUrl={sendai.forecasts[0].image.url} />
+        </SSendai>
+      )}
+      {akita && (
+        <SAkita>
+          <Card city={akita.location.city} imageUrl={akita.forecasts[0].image.url} />
+        </SAkita>
+      )}
+      {yamagata && (
+        <SYamagata>
           <Card city={yamagata.location.city} imageUrl={yamagata.forecasts[0].image.url} />
-        )}
-      </SYamagata>
-      <SFukushima>
-        {fukushima && (
+        </SYamagata>
+      )}
+      {fukushima && (
+        <SFukushima>
           <Card city={fukushima.location.city} imageUrl={fukushima.forecasts[0].image.url} />
-        )}
-      </SFukushima>
+        </SFukushima>
+      )}
     </SContainer>
   );
 };

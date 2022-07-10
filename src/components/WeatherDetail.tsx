@@ -1,15 +1,15 @@
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
+import { useForecastAPI } from 'src/hooks/useForecastAPI';
 import type { Forecasts } from 'src/types/Forecasts';
 
-type Props = {
-  detail?: Forecasts;
-};
+export const WeatherDetail = () => {
+  const search = useLocation().search;
+  const query = new URLSearchParams(search);
+  const cityId = query.get('cityid') as string;
+  const detail = useForecastAPI(cityId) as Forecasts;
 
-export const WeatherDetail = (props: Props) => {
-  const { detail } = props;
-  if (detail === undefined) return null;
-
-  return (
+  return (    
     <SContainer>
       <STitle>
         <p className="city-forecast">{detail.title}</p>

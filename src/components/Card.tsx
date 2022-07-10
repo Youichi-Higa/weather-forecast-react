@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 type Props = {
   city: string;
-  imageUrl: string | null;
+  imageUrl: string;
 };
 
 export const Card = (props: Props) => {
@@ -10,7 +10,7 @@ export const Card = (props: Props) => {
   return (
     <SContainer>
       <p>{city}</p>
-      {imageUrl && <SIcon src={imageUrl} alt="天気アイコン" />}
+      <SIcon src={imageUrl} alt="天気アイコン" />
     </SContainer>
   );
 };
