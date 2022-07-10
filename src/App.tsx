@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
-import { images } from 'src/assets/images';
 import { path } from 'src/constants/';
 import {
   Chubu,
