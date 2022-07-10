@@ -1,11 +1,14 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { images } from 'src/assets/images';
-import { BackHome } from './BackHome';
-import { Card } from './Card';
-import { cityIds } from 'src/constants/cityIds';
+import { cityIds, path } from 'src/constants';
 import { useForecastAPI } from 'src/hooks/useForecastAPI';
+import { BackHome } from '../BackHome';
+import { Card } from '../Card';
 
 export const Kyushu = () => {
+  const navigate = useNavigate();
+
   const fukuoka = useForecastAPI(cityIds.fukuoka);
   const saga = useForecastAPI(cityIds.saga);
   const nagasaki = useForecastAPI(cityIds.nagasaki);
@@ -20,35 +23,41 @@ export const Kyushu = () => {
       <SBackHome>
         <BackHome />
       </SBackHome>
-      <SFukuoka>
-        {fukuoka && <Card city={fukuoka.location.city} imageUrl={fukuoka.forecasts[0].image.url} />}
-      </SFukuoka>
-      <SSaga>
-        {saga && <Card city={saga.location.city} imageUrl={saga.forecasts[0].image.url} />}
-      </SSaga>
-      <SNagasaki>
-        {nagasaki && (
+      {fukuoka && (
+        <SFukuoka onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.fukuoka}`)}>
+          <Card city={fukuoka.location.city} imageUrl={fukuoka.forecasts[0].image.url} />
+        </SFukuoka>
+      )}
+      {saga && (
+        <SSaga onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.saga}`)}>
+          <Card city={saga.location.city} imageUrl={saga.forecasts[0].image.url} />
+        </SSaga>
+      )}
+      {nagasaki && (
+        <SNagasaki onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.nagasaki}`)}>
           <Card city={nagasaki.location.city} imageUrl={nagasaki.forecasts[0].image.url} />
-        )}
-      </SNagasaki>
-      <SKumamoto>
-        {kumamoto && (
+        </SNagasaki>
+      )}
+      {kumamoto && (
+        <SKumamoto onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.kumamoto}`)}>
           <Card city={kumamoto.location.city} imageUrl={kumamoto.forecasts[0].image.url} />
-        )}
-      </SKumamoto>
-      <SOita>
-        {oita && <Card city={oita.location.city} imageUrl={oita.forecasts[0].image.url} />}
-      </SOita>
-      <SMiyazaki>
-        {miyazaki && (
+        </SKumamoto>
+      )}
+      {oita && (
+        <SOita onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.oita}`)}>
+          <Card city={oita.location.city} imageUrl={oita.forecasts[0].image.url} />
+        </SOita>
+      )}
+      {miyazaki && (
+        <SMiyazaki onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.miyazaki}`)}>
           <Card city={miyazaki.location.city} imageUrl={miyazaki.forecasts[0].image.url} />
-        )}
-      </SMiyazaki>
-      <SKagoshima>
-        {kagoshima && (
+        </SMiyazaki>
+      )}
+      {kagoshima && (
+        <SKagoshima onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.kagoshima}`)}>
           <Card city={kagoshima.location.city} imageUrl={kagoshima.forecasts[0].image.url} />
-        )}
-      </SKagoshima>
+        </SKagoshima>
+      )}
     </SContainer>
   );
 };

@@ -1,11 +1,14 @@
+// maps
+export { Chubu } from './maps/Chubu';
+export { Chugoku } from './maps/Chugoku';
+export { Hokkaido } from './maps/Hokkaido';
+export { Japan } from './maps/Japan';
+export { Kanto } from './maps/Kanto';
+export { Kinki } from './maps/Kinki';
+export { Kyushu } from './maps/Kyushu';
+export { Shikoku } from './maps/Shikoku';
+export { Tohoku } from './maps/Tohoku';
+
 export { BackHome } from './BackHome';
-export { Chubu } from './Chubu';
-export { Chugoku } from './Chugoku';
-export { Hokkaido } from './Hokkaido';
-export { Japan } from './Japan';
-export { Kanto } from './Kanto';
-export { Kinki } from './Kinki';
-export { Kyushu } from './Kyushu';
 export { NotFound } from './NotFound';
-export { Shikoku } from './Shikoku';
-export { Tohoku } from './Tohoku';
+export { WeatherDetail } from './WeatherDetail';

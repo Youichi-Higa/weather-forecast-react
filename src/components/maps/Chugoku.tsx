@@ -1,11 +1,14 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { images } from 'src/assets/images';
-import { BackHome } from './BackHome';
-import { Card } from './Card';
-import { cityIds } from 'src/constants/cityIds';
+import { cityIds, path } from 'src/constants';
 import { useForecastAPI } from 'src/hooks/useForecastAPI';
+import { BackHome } from '../BackHome';
+import { Card } from '../Card';
 
 export const Chugoku = () => {
+  const navigate = useNavigate();
+
   const tottori = useForecastAPI(cityIds.tottori);
   const matsue = useForecastAPI(cityIds.matsue);
   const okayama = useForecastAPI(cityIds.okayama);
@@ -18,25 +21,31 @@ export const Chugoku = () => {
       <SBackHome>
         <BackHome />
       </SBackHome>
-      <STottori>
-        {tottori && <Card city={tottori.location.city} imageUrl={tottori.forecasts[0].image.url} />}
-      </STottori>
-      <SMatsue>
-        {matsue && <Card city={matsue.location.city} imageUrl={matsue.forecasts[0].image.url} />}
-      </SMatsue>
-      <SOkayama>
-        {okayama && <Card city={okayama.location.city} imageUrl={okayama.forecasts[0].image.url} />}
-      </SOkayama>
-      <SHiroshima>
-        {hiroshima && (
+      {tottori && (
+        <STottori onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.tottori}`)}>
+          <Card city={tottori.location.city} imageUrl={tottori.forecasts[0].image.url} />
+        </STottori>
+      )}
+      {matsue && (
+        <SMatsue onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.matsue}`)}>
+          <Card city={matsue.location.city} imageUrl={matsue.forecasts[0].image.url} />
+        </SMatsue>
+      )}
+      {okayama && (
+        <SOkayama onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.okayama}`)}>
+          <Card city={okayama.location.city} imageUrl={okayama.forecasts[0].image.url} />
+        </SOkayama>
+      )}
+      {hiroshima && (
+        <SHiroshima onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.hiroshima}`)}>
           <Card city={hiroshima.location.city} imageUrl={hiroshima.forecasts[0].image.url} />
-        )}
-      </SHiroshima>
-      <SYmaguchi>
-        {yamaguchi && (
+        </SHiroshima>
+      )}
+      {yamaguchi && (
+        <SYmaguchi onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.yamaguchi}`)}>
           <Card city={yamaguchi.location.city} imageUrl={yamaguchi.forecasts[0].image.url} />
-        )}
-      </SYmaguchi>
+        </SYmaguchi>
+      )}
     </SContainer>
   );
 };

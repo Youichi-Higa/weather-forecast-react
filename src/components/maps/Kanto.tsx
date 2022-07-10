@@ -1,11 +1,14 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { images } from 'src/assets/images';
-import { BackHome } from './BackHome';
-import { Card } from './Card';
-import { cityIds } from 'src/constants/cityIds';
+import { cityIds, path } from 'src/constants';
 import { useForecastAPI } from 'src/hooks/useForecastAPI';
+import { BackHome } from '../BackHome';
+import { Card } from '../Card';
 
 export const Kanto = () => {
+  const navigate = useNavigate();
+
   const mito = useForecastAPI(cityIds.mito);
   const utsunomiya = useForecastAPI(cityIds.utsunomiya);
   const maebashi = useForecastAPI(cityIds.maebashi);
@@ -20,33 +23,41 @@ export const Kanto = () => {
       <SBackHome>
         <BackHome />
       </SBackHome>
-      <SMito>
-        {mito && <Card city={mito.location.city} imageUrl={mito.forecasts[0].image.url} />}
-      </SMito>
-      <SUtunomiya>
-        {utsunomiya && (
+      {mito && (
+        <SMito onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.mito}`)}>
+          <Card city={mito.location.city} imageUrl={mito.forecasts[0].image.url} />
+        </SMito>
+      )}
+      {utsunomiya && (
+        <SUtsunomiya onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.utsunomiya}`)}>
           <Card city={utsunomiya.location.city} imageUrl={utsunomiya.forecasts[0].image.url} />
-        )}
-      </SUtunomiya>
-      <SMaebashi>
-        {maebashi && (
+        </SUtsunomiya>
+      )}
+      {maebashi && (
+        <SMaebashi onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.maebashi}`)}>
           <Card city={maebashi.location.city} imageUrl={maebashi.forecasts[0].image.url} />
-        )}
-      </SMaebashi>
-      <SSaitama>
-        {saitama && <Card city={saitama.location.city} imageUrl={saitama.forecasts[0].image.url} />}
-      </SSaitama>
-      <SChiba>
-        {chiba && <Card city={chiba.location.city} imageUrl={chiba.forecasts[0].image.url} />}
-      </SChiba>
-      <STokyo>
-        {tokyo && <Card city={tokyo.location.city} imageUrl={tokyo.forecasts[0].image.url} />}
-      </STokyo>
-      <SYokohama>
-        {yokohama && (
+        </SMaebashi>
+      )}
+      {saitama && (
+        <SSaitama onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.saitama}`)}>
+          <Card city={saitama.location.city} imageUrl={saitama.forecasts[0].image.url} />
+        </SSaitama>
+      )}
+      {chiba && (
+        <SChiba onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.chiba}`)}>
+          <Card city={chiba.location.city} imageUrl={chiba.forecasts[0].image.url} />
+        </SChiba>
+      )}
+      {tokyo && (
+        <STokyo onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.tokyo}`)}>
+          <Card city={tokyo.location.city} imageUrl={tokyo.forecasts[0].image.url} />
+        </STokyo>
+      )}
+      {yokohama && (
+        <SYokohama onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.yokohama}`)}>
           <Card city={yokohama.location.city} imageUrl={yokohama.forecasts[0].image.url} />
-        )}
-      </SYokohama>
+        </SYokohama>
+      )}
     </SContainer>
   );
 };
@@ -75,7 +86,7 @@ const SMito = styled(SCard)`
   top: 150px;
   right: 140px;
 `;
-const SUtunomiya = styled(SCard)`
+const SUtsunomiya = styled(SCard)`
   top: 80px;
   right: 240px;
 `;

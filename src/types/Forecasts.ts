@@ -39,9 +39,9 @@ export type Forecasts = {
 };
 
 type Forecast = {
-  date: string | null;
-  dateLabel: string | null;
-  telop: string | null;
+  date: string;
+  dateLabel: string;
+  telop: string;
   detail: {
     weather: string | null;
     wind: string | null;
@@ -58,15 +58,15 @@ type Forecast = {
     };
   };
   chanceOfRain: {
-    T00_06: string | null;
-    T06_12: string | null;
-    T12_18: string | null;
-    T18_24: string | null;
+    T00_06: string;
+    T06_12: string;
+    T12_18: string;
+    T18_24: string;
   };
   image: {
-    title: string | null;
-    url: string | null;
-    width: number | null;
-    height: number | null;
+    title: string;
+    url: string;
+    width: number;
+    height: number;
   };
 };

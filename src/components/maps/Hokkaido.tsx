@@ -1,11 +1,14 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { images } from 'src/assets/images';
-import { BackHome } from './BackHome';
-import { Card } from './Card';
-import { cityIds } from 'src/constants/cityIds';
+import { cityIds, path } from 'src/constants';
 import { useForecastAPI } from 'src/hooks/useForecastAPI';
+import { BackHome } from '../BackHome';
+import { Card } from '../Card';
 
 export const Hokkaido = () => {
+  const navigate = useNavigate();
+
   const wakkanai = useForecastAPI(cityIds.wakkanai);
   const asahikawa = useForecastAPI(cityIds.asahikawa);
   const abashiri = useForecastAPI(cityIds.abashiri);
@@ -20,35 +23,41 @@ export const Hokkaido = () => {
       <SBackHome>
         <BackHome />
       </SBackHome>
-      <SWakkanai>
-        {wakkanai && (
+      {wakkanai && (
+        <SWakkanai onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.wakkanai}`)}>
           <Card city={wakkanai.location.city} imageUrl={wakkanai.forecasts[0].image.url} />
-        )}
-      </SWakkanai>
-      <SAsahikawa>
-        {asahikawa && (
+        </SWakkanai>
+      )}
+      {asahikawa && (
+        <SAsahikawa onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.asahikawa}`)}>
           <Card city={asahikawa.location.city} imageUrl={asahikawa.forecasts[0].image.url} />
-        )}
-      </SAsahikawa>
-      <SAbashiri>
-        {abashiri && (
+        </SAsahikawa>
+      )}
+      {abashiri && (
+        <SAbashiri onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.abashiri}`)}>
           <Card city={abashiri.location.city} imageUrl={abashiri.forecasts[0].image.url} />
-        )}
-      </SAbashiri>
-      <SKushiro>
-        {kushiro && <Card city={kushiro.location.city} imageUrl={kushiro.forecasts[0].image.url} />}
-      </SKushiro>
-      <SMuroran>
-        {muroran && <Card city={muroran.location.city} imageUrl={muroran.forecasts[0].image.url} />}
-      </SMuroran>
-      <SSapporo>
-        {sapporo && <Card city={sapporo.location.city} imageUrl={sapporo.forecasts[0].image.url} />}
-      </SSapporo>
-      <SHakodate>
-        {hakodate && (
+        </SAbashiri>
+      )}
+      {kushiro && (
+        <SKushiro onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.kushiro}`)}>
+          <Card city={kushiro.location.city} imageUrl={kushiro.forecasts[0].image.url} />
+        </SKushiro>
+      )}
+      {muroran && (
+        <SMuroran onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.muroran}`)}>
+          <Card city={muroran.location.city} imageUrl={muroran.forecasts[0].image.url} />
+        </SMuroran>
+      )}
+      {sapporo && (
+        <SSapporo onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.sapporo}`)}>
+          <Card city={sapporo.location.city} imageUrl={sapporo.forecasts[0].image.url} />
+        </SSapporo>
+      )}
+      {hakodate && (
+        <SHakodate onClick={() => navigate(`${path.weatherDetail}?cityid=${cityIds.hakodate}`)}>
           <Card city={hakodate.location.city} imageUrl={hakodate.forecasts[0].image.url} />
-        )}
-      </SHakodate>
+        </SHakodate>
+      )}
     </SContainer>
   );
 };
