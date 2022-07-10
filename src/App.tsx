@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
+import { path } from 'src/constants/';
 import {
   Chubu,
   Chugoku,
@@ -18,16 +19,16 @@ const App = () => {
     <BrowserRouter>
       <SContainer>
         <Routes>
-          <Route path="/" element={<Japan />} />
-          <Route path="/hokkaido" element={<Hokkaido />} />
-          <Route path="/tohoku" element={<Tohoku />} />
-          <Route path="/kanto" element={<Kanto />} />
-          <Route path="/chubu" element={<Chubu />} />
-          <Route path="/kinki" element={<Kinki />} />
-          <Route path="/chugoku" element={<Chugoku />} />
-          <Route path="/shikoku" element={<Shikoku />} />
-          <Route path="/kyushu" element={<Kyushu />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path={path.japan} element={<Japan />} />
+          <Route path={path.hokkaido} element={<Hokkaido />} />
+          <Route path={path.tohoku} element={<Tohoku />} />
+          <Route path={path.kanto} element={<Kanto />} />
+          <Route path={path.chubu} element={<Chubu />} />
+          <Route path={path.kinki} element={<Kinki />} />
+          <Route path={path.chugoku} element={<Chugoku />} />
+          <Route path={path.shikoku} element={<Shikoku />} />
+          <Route path={path.kyushu} element={<Kyushu />} />
+          <Route path={path.notFound} element={<NotFound />} />
         </Routes>
       </SContainer>
     </BrowserRouter>

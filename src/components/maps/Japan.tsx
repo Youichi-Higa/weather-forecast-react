@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { images } from 'src/assets/images';
+import { cityIds, path } from 'src/constants';
 import { Card } from '../Card';
-import { cityIds } from 'src/constants/cityIds';
 import { useForecastAPI } from 'src/hooks/useForecastAPI';
 
 export const Japan = () => {
@@ -26,62 +26,62 @@ export const Japan = () => {
     <SContainer>
       <SMap src={images.japan} alt="日本全体" />
       {sapporo && (
-        <SSapporo onClick={() => navigate('/hokkaido')}>
+        <SSapporo onClick={() => navigate(path.hokkaido)}>
           <Card city={sapporo.location.city} imageUrl={sapporo.forecasts[0].image.url} />
         </SSapporo>
       )}
       {kushiro && (
-        <SKushiro onClick={() => navigate('/hokkaido')}>
+        <SKushiro onClick={() => navigate(path.hokkaido)}>
           <Card city={kushiro.location.city} imageUrl={kushiro.forecasts[0].image.url} />
         </SKushiro>
       )}
       {sendai && (
-        <SSendai onClick={() => navigate('/tohoku')}>
+        <SSendai onClick={() => navigate(path.tohoku)}>
           <Card city={sendai.location.city} imageUrl={sendai.forecasts[0].image.url} />
         </SSendai>
       )}
       {tokyo && (
-        <STokyo onClick={() => navigate('/kanto')}>
+        <STokyo onClick={() => navigate(path.kanto)}>
           <Card city={tokyo.location.city} imageUrl={tokyo.forecasts[0].image.url} />
         </STokyo>
       )}
       {niigata && (
-        <SNiigata onClick={() => navigate('/chubu')}>
+        <SNiigata onClick={() => navigate(path.chubu)}>
           <Card city={niigata.location.city} imageUrl={niigata.forecasts[0].image.url} />
         </SNiigata>
       )}
       {kanazawa && (
-        <SKanazawa onClick={() => navigate('/chubu')}>
+        <SKanazawa onClick={() => navigate(path.chubu)}>
           <Card city={kanazawa.location.city} imageUrl={kanazawa.forecasts[0].image.url} />
         </SKanazawa>
       )}
       {nagoya && (
-        <SNagoya onClick={() => navigate('/chubu')}>
+        <SNagoya onClick={() => navigate(path.chubu)}>
           <Card city={nagoya.location.city} imageUrl={nagoya.forecasts[0].image.url} />
         </SNagoya>
       )}
       {osaka && (
-        <SOsaka onClick={() => navigate('/kinki')}>
+        <SOsaka onClick={() => navigate(path.kinki)}>
           <Card city={osaka.location.city} imageUrl={osaka.forecasts[0].image.url} />
         </SOsaka>
       )}
       {hiroshima && (
-        <SHiroshima onClick={() => navigate('/chugoku')}>
+        <SHiroshima onClick={() => navigate(path.chugoku)}>
           <Card city={hiroshima.location.city} imageUrl={hiroshima.forecasts[0].image.url} />
         </SHiroshima>
       )}
       {kochi && (
-        <SKochi onClick={() => navigate('/shikoku')}>
+        <SKochi onClick={() => navigate(path.shikoku)}>
           <Card city={kochi.location.city} imageUrl={kochi.forecasts[0].image.url} />
         </SKochi>
       )}
       {fukuoka && (
-        <SFukuoka onClick={() => navigate('/kyushu')}>
+        <SFukuoka onClick={() => navigate(path.kyushu)}>
           <Card city={fukuoka.location.city} imageUrl={fukuoka.forecasts[0].image.url} />
         </SFukuoka>
       )}
       {kagoshima && (
-        <SKagoshima onClick={() => navigate('/kyushu')}>
+        <SKagoshima onClick={() => navigate(path.kyushu)}>
           <Card city={kagoshima.location.city} imageUrl={kagoshima.forecasts[0].image.url} />
         </SKagoshima>
       )}

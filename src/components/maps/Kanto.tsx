@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { images } from 'src/assets/images';
+import { cityIds } from 'src/constants';
+import { useForecastAPI } from 'src/hooks/useForecastAPI';
 import { BackHome } from '../BackHome';
 import { Card } from '../Card';
-import { cityIds } from 'src/constants/cityIds';
-import { useForecastAPI } from 'src/hooks/useForecastAPI';
 
 export const Kanto = () => {
   const mito = useForecastAPI(cityIds.mito);

@@ -1,11 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { path } from 'src/constants/';
 
 export const BackHome = () => {
   const navigate = useNavigate();
 
   return (
-    <SWrapper onClick={() => navigate('/')}>
+    <SWrapper onClick={() => navigate(path.japan)}>
       <p>＜ 全国</p>
     </SWrapper>
   );
