@@ -51,6 +51,8 @@ export const WeatherDetail = () => {
 const SContainer = styled.div`
   width: 600px;
   margin: 40px auto;
+  padding:20px;
+  background: white;
 `;
 
 const STitle = styled.div`
