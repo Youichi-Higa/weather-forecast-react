@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { useForecastAPI } from 'src/hooks/useForecastAPI';
+import { BackHome } from './BackHome';
 
 export const WeatherDetail = () => {
   const search = useLocation().search;
@@ -10,6 +11,9 @@ export const WeatherDetail = () => {
 
   return (
     <SContainer>
+      <SBackHome>
+        <BackHome />
+      </SBackHome>
       {detail && (
         <>
           <STitle>
@@ -51,8 +55,14 @@ export const WeatherDetail = () => {
 const SContainer = styled.div`
   width: 600px;
   margin: 40px auto;
-  padding:20px;
+  padding: 20px;
   background: white;
+`;
+
+const SBackHome = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
 `;
 
 const STitle = styled.div`
