@@ -1,4 +1,6 @@
+import { Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import CircularProgress from '@mui/material/CircularProgress';
 import styled from 'styled-components';
 import { path } from 'src/constants/';
 import {
@@ -17,24 +19,26 @@ import {
 
 const App = () => {
   return (
-    <SContainer>
-      <STitle>天気予報</STitle>
-      <BrowserRouter>
-        <Routes>
-          <Route path={path.japan} element={<Japan />} />
-          <Route path={path.hokkaido} element={<Hokkaido />} />
-          <Route path={path.tohoku} element={<Tohoku />} />
-          <Route path={path.kanto} element={<Kanto />} />
-          <Route path={path.chubu} element={<Chubu />} />
-          <Route path={path.kinki} element={<Kinki />} />
-          <Route path={path.chugoku} element={<Chugoku />} />
-          <Route path={path.shikoku} element={<Shikoku />} />
-          <Route path={path.kyushu} element={<Kyushu />} />
-          <Route path={path.weatherDetail} element={<WeatherDetail />} />
-          <Route path={path.notFound} element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </SContainer>
+    <Suspense fallback={<CircularProgress />}>
+      <SContainer>
+        <STitle>天気予報</STitle>
+        <BrowserRouter>
+          <Routes>
+            <Route path={path.japan} element={<Japan />} />
+            <Route path={path.hokkaido} element={<Hokkaido />} />
+            <Route path={path.tohoku} element={<Tohoku />} />
+            <Route path={path.kanto} element={<Kanto />} />
+            <Route path={path.chubu} element={<Chubu />} />
+            <Route path={path.kinki} element={<Kinki />} />
+            <Route path={path.chugoku} element={<Chugoku />} />
+            <Route path={path.shikoku} element={<Shikoku />} />
+            <Route path={path.kyushu} element={<Kyushu />} />
+            <Route path={path.weatherDetail} element={<WeatherDetail />} />
+            <Route path={path.notFound} element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </SContainer>
+    </Suspense>
   );
 };
 

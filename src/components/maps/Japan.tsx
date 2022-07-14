@@ -1,6 +1,4 @@
-import { Suspense } from 'react';
 import { useNavigate } from 'react-router-dom';
-import CircularProgress from '@mui/material/CircularProgress';
 import styled from 'styled-components';
 import { images } from 'src/assets/images';
 import { cityIds, path } from 'src/constants';
@@ -27,7 +25,6 @@ export const Japan = () => {
   return (
     <SContainer>
       <SMap src={images.japan} alt="日本全体" />
-      <Suspense fallback={<CircularProgress />}>
         {sapporo && (
           <SSapporo onClick={() => navigate(path.hokkaido)}>
             <Card city={sapporo.location.city} imageUrl={sapporo.forecasts[0].image.url} />
@@ -93,7 +90,6 @@ export const Japan = () => {
             <Card city={naha.location.city} imageUrl={naha.forecasts[0].image.url} />
           </SNaha>
         )}
-      </Suspense>
     </SContainer>
   );
 };
